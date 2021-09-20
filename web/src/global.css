@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #f2f2f2;
+  --black: #000;
+  --danger: #e74c3c;
+  --dark-gray-2: #363636;
+  --gray-2: #ddd;
+  --primary-800: #a91a45;
+  --primary-900: #860f3f;
+  --white: #fff;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background: var(--background);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary-900);
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+}

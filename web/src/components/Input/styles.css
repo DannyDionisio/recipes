@@ -1,0 +1,11 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field__input {
+  border-radius: 3px;
+  padding: 13px 16px;
+  margin: 4px 0 14px 0;
+  border: solid 1px var(--dark-gray-2);
+}
