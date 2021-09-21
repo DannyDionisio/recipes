@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 const logger = require("./src/utils/debug");
 
 mongoose.connect(process.env.MONGODB_URL, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   dbName: "recipes",
 });
 
