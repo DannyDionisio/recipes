@@ -16,9 +16,14 @@ const Button: React.FC<ButtonProps> = ({
   isBlock,
   ...rest
 }) => {
-  const className = classnames("button", `button--${variation}`, {
-    "button--block": isBlock,
-  });
+  const className = classnames(
+    "button",
+    `button--${variation}`,
+    "button--end",
+    {
+      "button--block": isBlock,
+    }
+  );
 
   return <button className={className} {...rest} />;
 };

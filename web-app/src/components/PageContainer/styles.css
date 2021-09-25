@@ -1,0 +1,10 @@
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.page-content {
+  margin: auto;
+  max-width: 880px;
+  width: 100%;
+}

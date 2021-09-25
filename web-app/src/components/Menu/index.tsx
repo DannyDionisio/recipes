@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./styles.css";
+// import "./styles.css";
 
 interface MenuProps {
   title: string;
@@ -11,7 +11,7 @@ const Menu = (props: MenuProps) => {
     <nav className="menu">
       <ul>
         <li>
-          <a href="#">{props.title}</a>
+          <a href="/">{props.title}</a>
         </li>
       </ul>
     </nav>
