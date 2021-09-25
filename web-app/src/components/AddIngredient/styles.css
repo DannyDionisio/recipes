@@ -1,0 +1,4 @@
+.ingredient-content {
+  display: flex;
+  flex-direction: row;
+}
