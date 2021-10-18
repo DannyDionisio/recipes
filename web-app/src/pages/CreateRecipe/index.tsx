@@ -10,8 +10,7 @@ import AddButton from "../../components/AddButton";
 
 import ImageIcon from "../../assets/images/image-icon.svg";
 
-import TimeIcon from "../../assets/images/clock-icon.svg";
-import PreparationStep from "../../components/PreparationStep";
+import PreparationStep, { Step } from "../../components/PreparationStep";
 import AddIngredient, { Ingredient } from "../../components/AddIngredient";
 import api from "../../services/api";
 
@@ -21,11 +20,11 @@ const CreateRecipe = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [portions, setPortions] = useState("");
-  const [addImage, setAddImage] = useState("");
+  //const [addImage, setAddImage] = useState("");
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
-
-  const [addPrepTime, setAddPrepTime] = useState("");
-  const [addTotalTime, setAddTotalTime] = useState("");
+  const [steps, setSteps] = useState<Step[]>([]);
+  const [prepTime, setPrepTime] = useState("");
+  const [totalTime, setTotalTime] = useState("");
   const [blendingMachine, setBlendingMachine] = useState<boolean>(false);
   const [source, setSource] = useState("");
   const [url, setUrl] = useState("");
@@ -46,14 +45,14 @@ const CreateRecipe = () => {
           notes,
         },
         ingredients,
+        preparationSteps: steps,
 
         // image: req.file?.path,
-        // isForBlendingMachine, --
-        // preparationSteps,
-        // timing: {
-        //   cooking: timing?.cooking,
-        //   preparation: timing?.preparation,
-        // },
+
+        timing: {
+          cooking: totalTime,
+          preparation: prepTime,
+        },
       })
       .then(() => {
         alert("Receita criada com sucesso!");
@@ -65,6 +64,10 @@ const CreateRecipe = () => {
 
   function handleIngredientsChange(ingredients: Ingredient[]) {
     setIngredients(ingredients);
+  }
+
+  function handleStepsChange(steps: Step[]) {
+    setSteps(steps);
   }
 
   return (
@@ -111,6 +114,24 @@ const CreateRecipe = () => {
                 placeholder="Número de porções"
               />
 
+              <Input
+                name="preparation-time"
+                label="Tempo de Preparação"
+                type="number"
+                value={prepTime}
+                placeholder="Tempo de preparação"
+                onChange={(e) => setPrepTime(e.target.value)}
+              />
+
+              <Input
+                name="total-time"
+                label="Tempo total"
+                type="number"
+                value={totalTime}
+                placeholder="Tempo total"
+                onChange={(e) => setTotalTime(e.target.value)}
+              />
+
               <div className="blending-machine__label">
                 <input
                   id="blending-machine"
@@ -132,19 +153,7 @@ const CreateRecipe = () => {
 
                 <AddIngredient onChange={handleIngredientsChange} />
 
-                <PreparationStep />
-
-                <AddButton
-                  source={TimeIcon}
-                  icon="time-icon"
-                  title="ADICIONAR TEMPO DE PREPARAÇÃO"
-                />
-
-                <AddButton
-                  source={TimeIcon}
-                  icon="time-icon"
-                  title="ADICIONAR TEMPO TOTAL"
-                />
+                <PreparationStep onChange={handleStepsChange} />
               </div>
 
               <h1 className="recipe-information">Informação da receita</h1>

@@ -44,17 +44,16 @@ const AddIngredient = ({ onChange }: Props) => {
   }
 
   return (
-    <div>
+    <div id="ingredient-container">
       {ingredients.length > 0 && <p>Ingredientes</p>}
 
       {ingredients.map((ingredient) => (
-        <div className="ingredient-content">
+        <div className="ingredient-content" key={`${ingredient.key}`}>
           <Input
             type="number"
             name="quantity"
             placeholder="Quantidade"
             value={ingredient.quantity}
-            key={`${ingredient.key}-quantity`}
             onChange={(e) =>
               handleIngredientChange(e, {
                 ...ingredient,
@@ -66,7 +65,6 @@ const AddIngredient = ({ onChange }: Props) => {
             name="unit"
             placeholder="Unidade de Medida"
             value={ingredient.unit}
-            key={`${ingredient.key}-unit`}
             onChange={(e) =>
               handleIngredientChange(e, { ...ingredient, unit: e.target.value })
             }
@@ -75,7 +73,6 @@ const AddIngredient = ({ onChange }: Props) => {
             name="ingredient"
             placeholder="Ingrediente"
             value={ingredient.name}
-            key={`${ingredient.key}-name`}
             onChange={(e) =>
               handleIngredientChange(e, { ...ingredient, name: e.target.value })
             }
