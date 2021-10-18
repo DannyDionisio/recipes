@@ -5,12 +5,16 @@ import BlenderIcon from "../../assets/images/blender-icon.svg";
 import Input from "../Input";
 import AddButton from "../AddButton";
 
-interface Step {
+export interface Step {
   key: number;
   value: string;
 }
 
-const PreparationStep = () => {
+type Props = {
+  onChange: (steps: Step[]) => void;
+};
+
+const PreparationStep = ({ onChange }: Props) => {
   const [steps, setSteps] = useState<Step[]>([]);
 
   function handleAddPrepStep(e: React.MouseEvent<HTMLButtonElement>) {
@@ -36,6 +40,7 @@ const PreparationStep = () => {
     });
 
     setSteps(newSteps);
+    onChange(newSteps);
   }
 
   return (

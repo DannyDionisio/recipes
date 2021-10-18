@@ -1,4 +1,12 @@
+#ingredient-container p {
+  margin-top: 10px;
+}
+
 .ingredient-content {
   display: flex;
   flex-direction: row;
+}
+
+.ingredient-content .form-field__input {
+  margin-right: 10px;
 }
