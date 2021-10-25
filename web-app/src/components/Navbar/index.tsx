@@ -19,10 +19,10 @@ const Navbar = () => {
         </a>
       </section>
 
-      <Menu title="Recipes" />
-      <Menu title="New Recipe" />
-      <Menu title="Meal Planner" />
-      <Menu title="Shopping List" />
+      <Menu>Recipes</Menu>
+      <Menu>New Recipe</Menu>
+      <Menu>Meal Planner</Menu>
+      <Menu>Shopping List</Menu>
     </div>
   );
 };

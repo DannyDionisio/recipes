@@ -1,9 +1,7 @@
 import React from "react";
 
-// import "./styles.css";
-
 interface MenuProps {
-  title: string;
+  children: string;
 }
 
 const Menu = (props: MenuProps) => {
@@ -11,7 +9,7 @@ const Menu = (props: MenuProps) => {
     <nav className="menu">
       <ul>
         <li>
-          <a href="/">{props.title}</a>
+          <a href="/">{props.children}</a>
         </li>
       </ul>
     </nav>

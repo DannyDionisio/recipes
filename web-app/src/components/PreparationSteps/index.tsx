@@ -14,7 +14,7 @@ type Props = {
   onChange: (steps: Step[]) => void;
 };
 
-const PreparationStep = ({ onChange }: Props) => {
+const PreparationSteps = ({ onChange }: Props) => {
   const [steps, setSteps] = useState<Step[]>([]);
 
   function handleAddPrepStep(e: React.MouseEvent<HTMLButtonElement>) {
@@ -58,12 +58,13 @@ const PreparationStep = ({ onChange }: Props) => {
 
       <AddButton
         source={BlenderIcon}
-        icon="blender-icon"
         title="ADICIONAR ETAPA PREPARAÇÃO"
         onClick={handleAddPrepStep}
-      />
+      >
+        ADICIONAR ETAPA PREPARAÇÃO
+      </AddButton>
     </div>
   );
 };
 
-export default PreparationStep;
+export default PreparationSteps;

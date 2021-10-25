@@ -13,7 +13,7 @@ type InputProps = React.DetailedHTMLProps<
 const Input: React.FC<InputProps> = ({ name, label, ...inputProps }) => {
   return (
     <div className="form-field">
-      <label htmlFor={name}>{label}</label>
+      {label && <label htmlFor={name}>{label}</label>}
       <input id={name} className="form-field__input" {...inputProps} />
     </div>
   );

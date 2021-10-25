@@ -18,7 +18,7 @@ type Props = {
   onChange: (ingredients: Ingredient[]) => void;
 };
 
-const AddIngredient = ({ onChange }: Props) => {
+const AddIngredients = ({ onChange }: Props) => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
   function handleAddIngredient(e: React.MouseEvent<HTMLButtonElement>) {
@@ -48,7 +48,7 @@ const AddIngredient = ({ onChange }: Props) => {
       {ingredients.length > 0 && <p>Ingredientes</p>}
 
       {ingredients.map((ingredient) => (
-        <div className="ingredient-content" key={`${ingredient.key}`}>
+        <div className="ingredient-content" key={ingredient.key}>
           <Input
             type="number"
             name="quantity"
@@ -82,12 +82,13 @@ const AddIngredient = ({ onChange }: Props) => {
 
       <AddButton
         source={CarrotIcon}
-        icon="carrot-icon"
         title="ADICIONAR INGREDIENTE"
         onClick={handleAddIngredient}
-      />
+      >
+        ADICIONAR INGREDIENTE
+      </AddButton>
     </div>
   );
 };
 
-export default AddIngredient;
+export default AddIngredients;

@@ -10,9 +10,9 @@ import AddButton from "../../components/AddButton";
 
 import ImageIcon from "../../assets/images/image-icon.svg";
 
-import PreparationStep, { Step } from "../../components/PreparationStep";
-import AddIngredient, { Ingredient } from "../../components/AddIngredient";
+import PreparationSteps, { Step } from "../../components/PreparationSteps";
 import api from "../../services/api";
+import AddIngredients, { Ingredient } from "../../components/AddIngredients";
 
 // Create recipe context
 
@@ -145,15 +145,13 @@ const CreateRecipe = () => {
               </div>
 
               <div className="add-buttons">
-                <AddButton
-                  source={ImageIcon}
-                  icon="image-icon"
-                  title="ADICIONAR IMAGEM"
-                />
+                <AddButton source={ImageIcon} title="ADICIONAR IMAGEM">
+                  ADICIONAR IMAGEM
+                </AddButton>
 
-                <AddIngredient onChange={handleIngredientsChange} />
+                <AddIngredients onChange={handleIngredientsChange} />
 
-                <PreparationStep onChange={handleStepsChange} />
+                <PreparationSteps onChange={handleStepsChange} />
               </div>
 
               <h1 className="recipe-information">Informação da receita</h1>

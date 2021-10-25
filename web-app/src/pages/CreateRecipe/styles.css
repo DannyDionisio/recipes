@@ -16,7 +16,9 @@
   max-width: 45%;
 }
 
-#portions {
+#portions,
+#preparation-time,
+#total-time {
   width: fit-content;
 }
 

@@ -8,19 +8,18 @@ type AddButtonProps = React.DetailedHTMLProps<
 > & {
   title: string;
   source: string;
-  icon: string;
 };
 
 const AddButton: React.FC<AddButtonProps> = ({
   title,
   source,
-  icon,
+  children,
   ...rest
 }) => {
   return (
     <button className="add-button" {...rest}>
-      <img src={source} alt={icon} />
-      <span>{title}</span>
+      <img src={source} alt={`Icon for ${title}`} />
+      <span>{children}</span>
     </button>
   );
 };
