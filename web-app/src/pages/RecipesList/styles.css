@@ -1,0 +1,10 @@
+.recipesList {
+  display: flex;
+  flex-direction: row;
+}
+
+.contentRecipesWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
