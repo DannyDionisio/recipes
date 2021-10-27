@@ -1,15 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
-interface MenuProps {
-  children: string;
-}
-
-const Menu = (props: MenuProps) => {
+const Menu: FC = ({ children }) => {
   return (
     <nav className="menu">
       <ul>
         <li>
-          <a href="/">{props.children}</a>
+          <a href="/">{children}</a>
         </li>
       </ul>
     </nav>

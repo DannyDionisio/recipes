@@ -1,12 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
 import "./styles.css";
 
 import Navbar from "../Navbar";
 
-type PageContainerProps = { children: React.ReactNode };
-
-const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
+const PageContainer: FC = ({ children }) => {
   return (
     <div className="page-container">
       <Navbar />
