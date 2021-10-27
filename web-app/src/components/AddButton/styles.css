@@ -1,0 +1,17 @@
+.add-button {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #777777;
+  border-radius: 3px;
+  padding: 0 16px;
+  margin: 16px 0 0;
+  height: 34px;
+  width: max-content;
+  cursor: pointer;
+}
+
+.add-button span {
+  margin-left: 8px;
+  font-size: 12px;
+}

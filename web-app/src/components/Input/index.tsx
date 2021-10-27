@@ -7,14 +7,14 @@ type InputProps = React.DetailedHTMLProps<
   HTMLInputElement
 > & {
   name: string;
-  label: string;
+  label?: string;
 };
 
 const Input: React.FC<InputProps> = ({ name, label, ...inputProps }) => {
   return (
     <div className="form-field">
-      <label htmlFor={name}>{label}</label>
-      <input id={name} className="form-field__input" {...inputProps}></input>
+      {label && <label htmlFor={name}>{label}</label>}
+      <input id={name} className="form-field__input" {...inputProps} />
     </div>
   );
 };

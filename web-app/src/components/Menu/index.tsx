@@ -1,17 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
-import "./styles.css";
-
-interface MenuProps {
-  title: string;
-}
-
-const Menu = (props: MenuProps) => {
+const Menu: FC = ({ children }) => {
   return (
     <nav className="menu">
       <ul>
         <li>
-          <a href="#">{props.title}</a>
+          <a href="/">{children}</a>
         </li>
       </ul>
     </nav>

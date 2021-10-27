@@ -6,4 +6,8 @@
   background-color: var(--white);
   width: 100%;
   box-sizing: border-box;
+
+  background-image: url(../../assets/images/bg.svg);
+  background-repeat: repeat-x, repeat-x;
+  background-position: 0 0, bottom;
 }

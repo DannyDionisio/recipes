@@ -1,0 +1,57 @@
+.form-content {
+  display: grid;
+}
+
+.category__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.category__select {
+  border-radius: 3px;
+  padding: 13px 16px;
+  margin: 4px 0 14px 0;
+  border: solid 1px #363636;
+
+  max-width: 45%;
+}
+
+#portions,
+#preparation-time,
+#total-time {
+  width: fit-content;
+}
+
+.blending-machine__label {
+  font-size: 14px;
+}
+
+.blending-machine__label input {
+  margin: unset;
+}
+
+.blending-machine__label label {
+  margin-left: 8px;
+}
+
+.add-buttons {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.notes-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field__textarea {
+  border-radius: 3px;
+  padding: 13px 16px;
+  margin: 4px 0 14px 0;
+  border: solid 1px #363636;
+}
+
+textarea::placeholder {
+  font-family: "Open Sans", sans-serif;
+}

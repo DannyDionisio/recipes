@@ -6,6 +6,10 @@
   padding: 13px 16px;
   margin: 10px 0;
   cursor: pointer;
+  width: fit-content;
+
+  display: flex;
+  justify-self: end;
 }
 
 .button--primary {
