@@ -58,7 +58,6 @@ const PreparationStep = ({ onChange }: Props) => {
 
       <AddButton
         source={BlenderIcon}
-        icon="blender-icon"
         title="ADICIONAR ETAPA PREPARAÇÃO"
         onClick={handleAddPrepStep}
       />

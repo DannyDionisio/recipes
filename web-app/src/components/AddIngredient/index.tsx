@@ -82,7 +82,6 @@ const AddIngredient = ({ onChange }: Props) => {
 
       <AddButton
         source={CarrotIcon}
-        icon="carrot-icon"
         title="ADICIONAR INGREDIENTE"
         onClick={handleAddIngredient}
       />
