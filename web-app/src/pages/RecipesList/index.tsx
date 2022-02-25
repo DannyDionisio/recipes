@@ -1,22 +1,23 @@
 import React from "react";
-import { api } from "../../services/api";
+//import { api } from "../../services/api";
 
 import "./styles.css";
 
 import Button from "../../components/Button";
 import PageContainer from "../../components/PageContainer";
 import RecipeCard from "../../components/RecipeCard";
+import { useEffect } from "react";
 
-/*
 type Recipe = {
   id: string;
   image: string;
   portions: number;
   totalTime: number;
 };
-*/
 
 const RecipesList = () => {
+  useEffect(() => {}, []);
+
   return (
     <PageContainer>
       <div className="recipesListWrapper">

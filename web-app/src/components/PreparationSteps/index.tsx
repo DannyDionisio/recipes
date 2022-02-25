@@ -45,7 +45,7 @@ const PreparationSteps = ({ onChange }: Props) => {
 
   return (
     <div className="preparation-step-container">
-      {steps.length > 0 && <p>Etapa Preparação</p>}
+      {steps.length > 0 && <p>Preparation Step</p>}
 
       {steps.map((step) => (
         <Input
@@ -58,10 +58,10 @@ const PreparationSteps = ({ onChange }: Props) => {
 
       <AddButton
         source={BlenderIcon}
-        title="ADICIONAR ETAPA PREPARAÇÃO"
+        title="ADD PREPARATION STEP"
         onClick={handleAddPrepStep}
       >
-        ADICIONAR ETAPA PREPARAÇÃO
+        ADD PREPARATION STEP
       </AddButton>
     </div>
   );

@@ -74,7 +74,7 @@ const CreateRecipe = () => {
     <div>
       <PageContainer>
         <div>
-          <h1>Criar uma receita</h1>
+          <h1>Create a recipe</h1>
         </div>
 
         <BoxContainer>
@@ -82,14 +82,14 @@ const CreateRecipe = () => {
             <form className="form-content" onSubmit={handleSubmit}>
               <Input
                 name="recipe-title"
-                label="Título da receita"
+                label="Recipe title"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
-                placeholder="Digite o título da receita"
+                placeholder="Type the title of the recipe"
               />
 
               <div className="category__label">
-                <label htmlFor="category">Categoria</label>
+                <label htmlFor="category">Category</label>
                 <select
                   id="category"
                   name="category"
@@ -98,37 +98,37 @@ const CreateRecipe = () => {
                   className="category__select"
                 >
                   <option value="" disabled>
-                    Escolha a categoria
+                    Choose the category
                   </option>
-                  <option value="6125015d8f886032ebdb4858">Categoria 1</option>
-                  <option value="6125015d8f886032ebdb4858">Categoria 2</option>
-                  <option value="6125015d8f886032ebdb4858">Categoria 3</option>
+                  <option value="6125015d8f886032ebdb4858">Category 1</option>
+                  <option value="6125015d8f886032ebdb4858">Category 2</option>
+                  <option value="6125015d8f886032ebdb4858">Category 3</option>
                 </select>
               </div>
 
               <Input
                 name="portions"
-                label="Porções"
+                label="Portions"
                 value={portions}
                 onChange={(event) => setPortions(event.target.value)}
-                placeholder="Número de porções"
+                placeholder="Number of portions"
               />
 
               <Input
                 name="preparation-time"
-                label="Tempo de Preparação"
+                label="Preparation Time"
                 type="number"
                 value={prepTime}
-                placeholder="Tempo de preparação"
+                placeholder="Preparation Time"
                 onChange={(e) => setPrepTime(e.target.value)}
               />
 
               <Input
                 name="total-time"
-                label="Tempo total"
+                label="Total time"
                 type="number"
                 value={totalTime}
-                placeholder="Tempo total"
+                placeholder="Total time"
                 onChange={(e) => setTotalTime(e.target.value)}
               />
 
@@ -140,13 +140,13 @@ const CreateRecipe = () => {
                   onChange={(event) => setBlendingMachine(!blendingMachine)}
                 />
                 <label htmlFor="blending-machine">
-                  É para robot de cozinha?
+                  Is it for blending machine?
                 </label>
               </div>
 
               <div className="add-buttons">
-                <AddButton source={ImageIcon} title="ADICIONAR IMAGEM">
-                  ADICIONAR IMAGEM
+                <AddButton source={ImageIcon} title="ADD IMAGE">
+                  ADD IMAGE
                 </AddButton>
 
                 <AddIngredients onChange={handleIngredientsChange} />
@@ -154,12 +154,12 @@ const CreateRecipe = () => {
                 <PreparationSteps onChange={handleStepsChange} />
               </div>
 
-              <h1 className="recipe-information">Informação da receita</h1>
+              <h1 className="recipe-information">Recipe Information</h1>
 
               <Input
                 name="source"
-                label="Fonte"
-                placeholder="Digite a fonte da receita"
+                label="Source"
+                placeholder="Type the recipe source"
                 value={source}
                 onChange={(event) => setSource(event.target.value)}
               />
@@ -167,24 +167,24 @@ const CreateRecipe = () => {
                 name="url"
                 label="Url"
                 type="url"
-                placeholder="Digite o url da receita"
+                placeholder="Type the original recipe url"
                 value={url}
                 onChange={(event) => setUrl(event.target.value)}
               />
 
               <div className="notes-box">
-                <label>Notas</label>
+                <label>Notes</label>
                 <textarea
                   name="notes"
                   className="form-field__textarea"
-                  placeholder="Notas sobre a receita"
+                  placeholder="Notes about the recipe"
                   rows={4}
                   value={notes}
                   onChange={(event) => setNotes(event.target.value)}
                 />
               </div>
 
-              <Button type="submit">Guardar Receita</Button>
+              <Button type="submit">Save Recipe</Button>
             </form>
           </div>
         </BoxContainer>

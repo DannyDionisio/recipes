@@ -52,7 +52,7 @@ const AddIngredients = ({ onChange }: Props) => {
           <Input
             type="number"
             name="quantity"
-            placeholder="Quantidade"
+            placeholder="Quantity"
             value={ingredient.quantity}
             onChange={(e) =>
               handleIngredientChange(e, {
@@ -63,7 +63,7 @@ const AddIngredients = ({ onChange }: Props) => {
           />
           <Input
             name="unit"
-            placeholder="Unidade de Medida"
+            placeholder="Unit"
             value={ingredient.unit}
             onChange={(e) =>
               handleIngredientChange(e, { ...ingredient, unit: e.target.value })
@@ -71,7 +71,7 @@ const AddIngredients = ({ onChange }: Props) => {
           />
           <Input
             name="ingredient"
-            placeholder="Ingrediente"
+            placeholder="Ingredient"
             value={ingredient.name}
             onChange={(e) =>
               handleIngredientChange(e, { ...ingredient, name: e.target.value })
@@ -82,10 +82,10 @@ const AddIngredients = ({ onChange }: Props) => {
 
       <AddButton
         source={CarrotIcon}
-        title="ADICIONAR INGREDIENTE"
+        title="ADD INGREDIENT"
         onClick={handleAddIngredient}
       >
-        ADICIONAR INGREDIENTE
+        ADD INGREDIENT
       </AddButton>
     </div>
   );
