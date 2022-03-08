@@ -72,15 +72,15 @@ const Signup = () => {
     <AuthContainer onSubmit={handleSubmit}>
       <Input
         name="name"
-        label="Nome"
-        placeholder="Digite aqui seu nome"
+        label="Name"
+        placeholder="Your name"
         type="text"
       />
 
       <Input
         name="email"
         label="Email"
-        placeholder="Digite aqui o seu email"
+        placeholder="Your email"
         type="email"
         required={true}
       />
@@ -90,20 +90,20 @@ const Signup = () => {
 
       <Input
         name="password"
-        label="Senha"
-        placeholder="Digite aqui a sua senha"
+        label="Password"
+        placeholder="Your password"
         type="password"
         required={true}
       />
       {validationErrors.password && <p>{validationErrors.password}</p>}
 
       <Button isBlock={true} type="submit" disabled={isLoading}>
-        Registrar-se
+        Sign Up
       </Button>
 
       <div className="link-container">
         <Link to="/" className="link">
-          Ou, entrar.
+          Or, sign in.
         </Link>
       </div>
     </AuthContainer>

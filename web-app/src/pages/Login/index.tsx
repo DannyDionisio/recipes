@@ -30,9 +30,9 @@ const Login = () => {
         const { status } = err.response;
 
         if (status === 403) {
-          setValidationError("Email ou senha inválidos.");
+          setValidationError("Your email or password is incorrect.");
         } else {
-          setValidationError("Erro interno, tente novamente mais tarde.");
+          setValidationError("Internal Error, try again later.");
         }
       });
   };
@@ -42,7 +42,7 @@ const Login = () => {
       <Input
         name="email"
         label="Email"
-        placeholder="Digite aqui o seu email"
+        placeholder="Your email"
         type="email"
         required={true}
       />
@@ -53,8 +53,8 @@ const Login = () => {
 
         <Input
           name="password"
-          label="Senha"
-          placeholder="Digite aqui a sua senha"
+          label="Password"
+          placeholder="Your password"
           type="password"
           required={true}
         />
@@ -62,12 +62,12 @@ const Login = () => {
       </div>
 
       <Button isBlock={true} type="submit">
-        Entrar
+        Sign in
       </Button>
 
       <div className="link-container">
         <Link to="/signup" className="link">
-          Ou, criar uma conta.
+          Or, create account.
         </Link>
       </div>
     </AuthContainer>
