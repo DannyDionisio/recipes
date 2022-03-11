@@ -4,9 +4,7 @@ const Menu: FC = ({ children }) => {
   return (
     <nav className="menu">
       <ul>
-        <li>
-          <a href="/">{children}</a>
-        </li>
+        {children}
       </ul>
     </nav>
   );

@@ -21,17 +21,15 @@ const Navbar = () => {
       </section>
 
       <Menu>
-        <Link to="/recipes">
-          Recipes
-        </Link>
+        <li>
+          <Link to="/recipes">Recipes</Link>
+        </li>
+        <li>
+          <Link to="/recipe/create">New Recipe</Link>
+        </li>
+        <li>Meal Planner</li>
+        <li>Shopping List</li>
       </Menu>
-      <Menu>
-        <Link to="/recipe/create">
-          New Recipe
-        </Link>
-      </Menu>
-      <Menu>Meal Planner</Menu>
-      <Menu>Shopping List</Menu>
     </div>
   );
 };

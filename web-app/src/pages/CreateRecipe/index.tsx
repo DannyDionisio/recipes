@@ -13,10 +13,13 @@ import ImageIcon from "../../assets/images/image-icon.svg";
 import PreparationSteps, { Step } from "../../components/PreparationSteps";
 import api from "../../services/api";
 import AddIngredients, { Ingredient } from "../../components/AddIngredients";
+import { useHistory } from "react-router-dom";
 
 // Create recipe context
 
 const CreateRecipe = () => {
+  let history = useHistory();
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [portions, setPortions] = useState("");
@@ -56,6 +59,8 @@ const CreateRecipe = () => {
       })
       .then(() => {
         alert("Recipe created with success!");
+
+        history.push("/recipes");
       })
       .catch(() => {
         alert("Error to create recipe.");
