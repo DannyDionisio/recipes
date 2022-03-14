@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import PageContainer from "../../components/PageContainer";
-import RecipeTile from "../../components/RecipeTile";
+import RecipeCard from "../../components/RecipeCard";
 
 import "./styles.css";
 
 const RecipesList = () => {
   return (
-    <div>
+    <>
       <PageContainer>
         <div className="recipes-list-header">
           <h1>Recipes</h1>
@@ -16,9 +16,14 @@ const RecipesList = () => {
             <Link to="/recipe/create">Create Recipe</Link>
           </Button>
         </div>
-        <RecipeTile />
+        <div className="recipes-list">
+          <RecipeCard />
+          <RecipeCard />
+          <RecipeCard />
+          <RecipeCard />
+        </div>
       </PageContainer>
-    </div>
+    </>
   );
 };
 

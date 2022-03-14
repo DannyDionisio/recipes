@@ -1,0 +1,8 @@
+.card-container {
+  max-width: 30%;
+}
+
+.card-container img {
+  width: 100%;
+  border-radius: 4px;
+}
