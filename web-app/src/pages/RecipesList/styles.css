@@ -3,11 +3,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-.recipes-list {
+.card-container {
+  max-width: 30%;
+}
+
+.card-container img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.recipes-list-wapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 25px;
+  gap: 23px;
 }
