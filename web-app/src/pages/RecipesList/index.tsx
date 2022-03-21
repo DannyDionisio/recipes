@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import api from "../../services/api";
+
 import Button from "../../components/Button";
 import PageContainer from "../../components/PageContainer";
+
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import PersonIcon from "@mui/icons-material/Person";
 
 import Recipe from "../../assets/images/recipe.jpeg";
 
@@ -10,16 +15,21 @@ import "./styles.css";
 interface RecipeProps {
   portions: number;
   title: string;
+  id: string;
+  timing: {
+    cooking: number;
+  };
 }
 
 const RecipesList = () => {
   const [recipeList, setRecipeList] = useState<RecipeProps[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/recipe/")
-      .then((response) => response.json())
-      .then((res) => setRecipeList(res.data));
-  }, [recipeList]);
+    api
+      .get("recipe")
+      //.then((response) => response.json())
+      .then((res) => setRecipeList(res.data.data));
+  }, []);
 
   return (
     <>
@@ -33,10 +43,16 @@ const RecipesList = () => {
 
         <div className="recipes-list-wapper">
           {recipeList.map((recipe) => (
-            <div className="card-container">
+            <div className="card-container" key={recipe.id}>
               <img src={Recipe} alt="Recipe" />
-              <span>{recipe.portions}</span>
-              <span>45min.</span>
+              <span>
+                <PersonIcon />
+                {recipe.portions}
+              </span>
+              <span>
+                <AccessTimeIcon />
+                {recipe.timing.cooking}
+              </span>
               <h3 className="card-title">{recipe.title}</h3>
             </div>
           ))}
