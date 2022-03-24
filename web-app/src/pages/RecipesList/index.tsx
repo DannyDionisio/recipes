@@ -25,10 +25,7 @@ const RecipesList = () => {
   const [recipeList, setRecipeList] = useState<RecipeProps[]>([]);
 
   useEffect(() => {
-    api
-      .get("recipe")
-      //.then((response) => response.json())
-      .then((res) => setRecipeList(res.data.data));
+    api.get("recipe").then((res) => setRecipeList(res.data.data));
   }, []);
 
   return (
@@ -51,7 +48,7 @@ const RecipesList = () => {
               </span>
               <span>
                 <AccessTimeIcon />
-                {recipe.timing.cooking}
+                {recipe.timing.cooking + "min."}
               </span>
               <h3 className="card-title">{recipe.title}</h3>
             </div>
