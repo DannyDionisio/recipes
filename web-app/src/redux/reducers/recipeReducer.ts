@@ -1,27 +1,22 @@
 import { AnyAction } from "redux";
 
 const initialState = {
-  recipes: [
-    {
-      title: "",
-      category: "",
-      portions: "",
-      //addImage: '',
-      ingredients: [],
-      steps: [],
-      prepTime: "",
-      totalTime: "",
-      blendingMachine: false,
-      url: "",
-      notes: "",
-    },
-  ],
+  recipes: [],
 };
 
 export const recipeReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
-    case "SET_RECIPES":
-      return state;
+    case "ADD_RECIPE":
+      const recipes = state.recipes.concat(action.payload);
+      return {
+        ...state,
+        recipes,
+      };
+    case "GET_RECIPES":
+      return {
+        ...state,
+        recipes: action.payload,
+      };
     default:
       return state;
   }

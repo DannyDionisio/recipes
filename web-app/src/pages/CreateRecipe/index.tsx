@@ -14,10 +14,14 @@ import PreparationSteps, { Step } from "../../components/PreparationSteps";
 import api from "../../services/api";
 import AddIngredients, { Ingredient } from "../../components/AddIngredients";
 import { useHistory } from "react-router-dom";
+//import { useDispatch } from "react-redux";
+//import { addRecipe } from "../../redux/actions/recipeActions";
 
 // Create recipe context
 
 const CreateRecipe = () => {
+  //const dispatch = useDispatch();
+
   let history = useHistory();
 
   const [title, setTitle] = useState("");
@@ -35,6 +39,7 @@ const CreateRecipe = () => {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    //dispatch(addRecipe());
 
     api
       .post("recipe", {

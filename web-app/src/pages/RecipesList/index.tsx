@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../services/api";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getRecipes } from "../../redux/actions/recipeActions";
 
 import Button from "../../components/Button";
 import PageContainer from "../../components/PageContainer";
-
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
 
 import Recipe from "../../assets/images/recipe.jpeg";
 
 import "./styles.css";
+import { ReducersState } from "../../redux/reducers";
 
 interface RecipeProps {
   portions: number;
@@ -22,11 +25,14 @@ interface RecipeProps {
 }
 
 const RecipesList = () => {
-  const [recipeList, setRecipeList] = useState<RecipeProps[]>([]);
+  const dispatch = useDispatch();
+  const recipes = useSelector(
+    (state: ReducersState) => state.allRecipes.recipes
+  );
 
   useEffect(() => {
-    api.get("recipe").then((res) => setRecipeList(res.data.data));
-  }, []);
+    api.get("recipe").then((res) => dispatch(getRecipes(res.data.data)));
+  }, [dispatch]);
 
   return (
     <>
@@ -39,7 +45,7 @@ const RecipesList = () => {
         </div>
 
         <div className="recipes-list-wapper">
-          {recipeList.map((recipe) => (
+          {recipes.map((recipe: RecipeProps) => (
             <div className="card-container" key={recipe.id}>
               <img src={Recipe} alt="Recipe" />
               <span>
