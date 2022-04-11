@@ -18,5 +18,6 @@
 .recipes-list-wapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: 23px;
 }

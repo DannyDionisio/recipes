@@ -1,10 +1,16 @@
 import { AnyAction } from "redux";
+import { Recipe } from "../actions/recipesActions";
 
 const initialState = {
-  recipes: [],
+  recipes: [] as Recipe[],
 };
 
-export const recipeReducer = (state = initialState, action: AnyAction) => {
+type Reducer = typeof initialState;
+
+export const recipesReducer = (
+  state = initialState,
+  action: AnyAction
+): Reducer => {
   switch (action.type) {
     case "ADD_RECIPE":
       const recipes = state.recipes.concat(action.payload);

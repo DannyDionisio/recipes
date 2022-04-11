@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { recipeReducer } from "./recipeReducer";
+import { recipesReducer } from "./recipesReducer";
 
 export const reducers = combineReducers({
-  allRecipes: recipeReducer,
+  recipes: recipesReducer,
 });
 
 export type ReducersState = ReturnType<typeof reducers>;

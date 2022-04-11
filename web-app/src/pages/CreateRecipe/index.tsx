@@ -1,75 +1,65 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import "./styles.css";
+
+import { addRecipe } from "../../redux/actions/recipesActions";
 
 import BoxContainer from "../../components/BoxContainer";
 import PageContainer from "../../components/PageContainer";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import AddButton from "../../components/AddButton";
+import AddIngredients, { Ingredient } from "../../components/AddIngredients";
+import PreparationSteps, { Step } from "../../components/PreparationSteps";
 
 import ImageIcon from "../../assets/images/image-icon.svg";
-
-import PreparationSteps, { Step } from "../../components/PreparationSteps";
-import api from "../../services/api";
-import AddIngredients, { Ingredient } from "../../components/AddIngredients";
-import { useHistory } from "react-router-dom";
-//import { useDispatch } from "react-redux";
-//import { addRecipe } from "../../redux/actions/recipeActions";
 
 // Create recipe context
 
 const CreateRecipe = () => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   let history = useHistory();
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
-  const [portions, setPortions] = useState("");
+  const [portions, setPortions] = useState<number>();
   //const [addImage, setAddImage] = useState("");
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [steps, setSteps] = useState<Step[]>([]);
-  const [prepTime, setPrepTime] = useState("");
-  const [totalTime, setTotalTime] = useState("");
+  const [prepTime, setPrepTime] = useState<number>();
+  const [totalTime, setTotalTime] = useState<number>();
   const [blendingMachine, setBlendingMachine] = useState<boolean>(false);
   const [source, setSource] = useState("");
   const [url, setUrl] = useState("");
   const [notes, setNotes] = useState("");
 
-  function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    //dispatch(addRecipe());
 
-    api
-      .post("recipe", {
-        title,
-        categoryId: category,
-        isForBlendingMachine: blendingMachine,
-        portions,
-        metadata: {
-          source,
-          url,
-          notes,
-        },
-        ingredients,
-        preparationSteps: steps,
+    const recipe = {
+      title,
+      categoryId: category,
+      isForBlendingMachine: blendingMachine,
+      portions,
+      metadata: {
+        source,
+        url,
+        notes,
+      },
+      ingredients,
+      preparationSteps: steps,
+      // image: req.file?.path,
+      timing: {
+        cooking: totalTime,
+        preparation: prepTime,
+      },
+    };
 
-        // image: req.file?.path,
-
-        timing: {
-          cooking: totalTime,
-          preparation: prepTime,
-        },
-      })
-      .then(() => {
-        alert("Recipe created with success!");
-
-        history.push("/recipes");
-      })
-      .catch(() => {
-        alert("Error to create recipe.");
-      });
+    dispatch(addRecipe(recipe));
+    history.push("/recipes");
   }
 
   function handleIngredientsChange(ingredients: Ingredient[]) {
@@ -110,9 +100,15 @@ const CreateRecipe = () => {
                   <option value="" disabled>
                     Choose a category
                   </option>
-                  <option value="6125015d8f886032ebdb4858">Category 1</option>
-                  <option value="6125015d8f886032ebdb4858">Category 2</option>
-                  <option value="6125015d8f886032ebdb4858">Category 3</option>
+                  <option value="6125015d8f886032ebdb4858" id="cat-1">
+                    Category 1
+                  </option>
+                  <option value="6125015d8f886032ebdb4858" id="cat-2">
+                    Category 2
+                  </option>
+                  <option value="6125015d8f886032ebdb4858" id="cat-3">
+                    Category 3
+                  </option>
                 </select>
               </div>
 
@@ -120,7 +116,7 @@ const CreateRecipe = () => {
                 name="portions"
                 label="Portions"
                 value={portions}
-                onChange={(event) => setPortions(event.target.value)}
+                onChange={(event) => setPortions(Number(event.target.value))}
                 placeholder="Number of portions"
               />
 
@@ -130,7 +126,7 @@ const CreateRecipe = () => {
                 type="number"
                 value={prepTime}
                 placeholder="Preparation Time"
-                onChange={(e) => setPrepTime(e.target.value)}
+                onChange={(e) => setPrepTime(Number(e.target.value))}
               />
 
               <Input
@@ -139,7 +135,7 @@ const CreateRecipe = () => {
                 type="number"
                 value={totalTime}
                 placeholder="Total time"
-                onChange={(e) => setTotalTime(e.target.value)}
+                onChange={(e) => setTotalTime(Number(e.target.value))}
               />
 
               <div className="blending-machine__label">
