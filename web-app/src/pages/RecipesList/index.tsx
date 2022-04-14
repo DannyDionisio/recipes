@@ -43,18 +43,21 @@ const RecipesList = () => {
         <div className="recipes-list-wapper">
           {recipes.map((recipe: RecipeType) => (
             <div className="card-container" key={recipe.id}>
-              <img src={Recipe} alt="Recipe" />
-              <span>
-                <PersonIcon />
-                {recipe.portions}
-              </span>
+              <div className="recipe-header">
+                <img src={Recipe} alt="Recipe" />
 
-              {recipe.timing?.cooking && (
                 <span>
-                  <AccessTimeIcon />
-                  {recipe.timing?.cooking + "min."}
+                  <PersonIcon />
+                  {recipe.portions}
                 </span>
-              )}
+
+                {recipe.timing?.cooking && (
+                  <span>
+                    <AccessTimeIcon />
+                    {recipe.timing?.cooking + "min."}
+                  </span>
+                )}
+              </div>
 
               <h3 className="card-title">{recipe.title}</h3>
             </div>

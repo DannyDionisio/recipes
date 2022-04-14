@@ -21,3 +21,7 @@
   justify-content: space-around;
   gap: 23px;
 }
+
+.recipe-header {
+  background-color: var(--black) 0.45;
+}
